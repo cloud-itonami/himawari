@@ -1,0 +1,13 @@
+;; schema.edn — Datomic/Datascript 互換スキーマ定義（自動生成 by edn-datomize.bb）
+;; :db/ident 属性定義のリスト。Datomic 固有キー(:db.install/_attribute 等)は使わない。
+;; 手編集禁止 — 再生成すると上書きされる。
+;;
+;; com-etzhayyim-himawari Phase 3 fanout: deploy/manifest.edn は既に
+;; 名前空間付きキー(:deploy/*)だったため wrap-map-keep-ns で既存名前空間を
+;; 保持。deploy/schema.edn（Datomic EAVT スキーマ本体）と deploy/seed.edn
+;; （deploy/ingest_records.py の Python 製 EDN パーサが消費する tx-data。
+;; 既に :himawari.*/* 名前空間付きの entity マップ vector で well-shaped）
+;; は変換対象外（skip）。この schema.edn は deploy/schema.edn とは別物
+;; （deploy/manifest.edn 由来の :deploy/* 属性のみを持つ）。
+
+[#:db{:ident :deploy/activated?, :valueType :db.type/boolean, :cardinality :db.cardinality/one} #:db{:ident :deploy/activation-gate, :valueType :db.type/string, :cardinality :db.cardinality/one} #:db{:ident :deploy/actor, :valueType :db.type/string, :cardinality :db.cardinality/one} #:db{:ident :deploy/adr, :valueType :db.type/string, :cardinality :db.cardinality/one} #:db{:ident :deploy/build, :valueType :db.type/string, :cardinality :db.cardinality/one} #:db{:ident :deploy/cells, :valueType :db.type/string, :cardinality :db.cardinality/one} #:db{:ident :deploy/component, :valueType :db.type/string, :cardinality :db.cardinality/one} #:db{:ident :deploy/did, :valueType :db.type/string, :cardinality :db.cardinality/one} #:db{:ident :deploy/phase, :valueType :db.type/keyword, :cardinality :db.cardinality/one} #:db{:ident :deploy/tier, :valueType :db.type/keyword, :cardinality :db.cardinality/one}]
