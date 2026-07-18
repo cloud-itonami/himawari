@@ -10,14 +10,19 @@
 # - outbound_logistics  輸送 handoff (G13 hikari-only + kami-autodrive GNC)
 # - supply_procurement  調達 (G2 XUAR/G8 SBOM + okaimono commons-first)
 set -euo pipefail
-cd "$(dirname "$0")/../.."
-exec bb -e '(def nss (quote [himawari.cells.polysilicon-refine.test-state-machine
+repo_dir="$(cd "$(dirname "$0")" && pwd)"
+classpath_dir="$(mktemp -d "${TMPDIR:-/tmp}/himawari-classpath.XXXXXX")"
+trap 'rm -rf "$classpath_dir"' EXIT
+ln -s "$repo_dir" "$classpath_dir/himawari"
+cd "$repo_dir"
+exec bb -cp "$classpath_dir" -e '(def nss (quote [himawari.cells.polysilicon-refine.test-state-machine
                              himawari.cells.ingot-wafer.test-state-machine
                              himawari.cells.cell-process.test-state-machine
                              himawari.cells.module-assembly.test-state-machine
                              himawari.cells.panel-loading.test-state-machine
                              himawari.cells.outbound-logistics.test-state-machine
-                             himawari.cells.supply-procurement.test-state-machine]))
+                             himawari.cells.supply-procurement.test-state-machine
+                             himawari.methods.test-charter-gates]))
               (apply require (quote clojure.test) nss)
               (let [r (apply clojure.test/run-tests nss)]
                 (System/exit (if (zero? (+ (:fail r) (:error r))) 0 1)))'
