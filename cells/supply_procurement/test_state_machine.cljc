@@ -2,7 +2,7 @@
   "Tests for the himawari supply_procurement state machine (ADR-2606021200 port).
   1:1 parity with cells/supply_procurement/test_cell.py."
   (:require [clojure.test :refer [deftest is testing]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [himawari.cells.supply-procurement.state-machine :as sm]))
 
 ;; ── Happy-path fixtures ──

@@ -2,7 +2,7 @@
   "Tests for the himawari ingot_wafer cell (ADR-2606021200 port).
   1:1 port of cells/test_ingot_wafer.py cases."
   (:require [clojure.test :refer [deftest is testing]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [himawari.cells.ingot-wafer.state-machine :as sm]))
 
 (deftest test-ingot-wafer-happy-path-accepted

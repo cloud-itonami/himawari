@@ -8,7 +8,7 @@
 
   A refused lot carries accepted=false and is NOT routed to ingot_wafer. The refusal
   record is computed and returned so a rejected lot is permanently auditable."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; ── G2 / N6: XUAR + forced-labor exclusion terms (constitutional, case-insensitive substring) ──
 (def ^:private EXCLUDED_ORIGIN_TERMS
@@ -155,7 +155,7 @@
                          (pr-str (sort VALID_PROCESSES)))))
 
             ;; --- G2 / N6: XUAR + forced-labor exclusion (constitutional) ---
-            (cond-> (some #(str/includes? (str/lower-case declared-orig) %) EXCLUDED_ORIGIN_TERMS)
+            (cond-> (some #(str/includes? (str/lower declared-orig) %) EXCLUDED_ORIGIN_TERMS)
               (conj (str "declaredOrigin " (pr-str declared-orig)
                          " matches excluded forced-labor region — REFUSED (N6 constitutional, no waiver, ever)")))
             (cond-> (str/blank? declared-orig)

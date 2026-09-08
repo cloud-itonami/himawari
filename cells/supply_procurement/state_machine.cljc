@@ -11,7 +11,7 @@
   The cljc port carries the pure logic without importing those actors;
   the composition seam is expressed as a data contract (ring routing, SBOM shape)
   rather than a direct function call."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; ── Constitutional constants for procurement ──
 
@@ -48,14 +48,14 @@
   Solar-grade-only (N1) + XUAR-exclusion (N6) are NOT amendable."
   [need]
   (let [grade  (get need "feedstockGrade")
-        origin (str/lower-case (str/trim (str (get need "originRegion" ""))))]
+        origin (str/lower (str/trim (str (get need "originRegion" ""))))]
     (cond
       (and (some? grade) (not (contains? SOLAR_GRADES grade)))
       {"state"  "refused"
        "reason" (str "feedstockGrade " (pr-str grade) " is not solar-grade (N1: solar-grade only, "
                      "never logic-grade EG-Si); allowed=" (pr-str (sort SOLAR_GRADES)))}
 
-      (and (seq origin) (some #(str/includes? origin (str/lower-case %)) XUAR_REGIONS))
+      (and (seq origin) (some #(str/includes? origin (str/lower %)) XUAR_REGIONS))
       {"state"  "refused"
        "reason" "origin region is XUAR/forced-labor excluded (G2/N6 constitutional — NO XUAR polysilicon ever); closes hikari §G2 structurally"}
 

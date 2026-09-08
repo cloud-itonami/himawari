@@ -2,7 +2,7 @@
   "Tests for the himawari outbound_logistics state machine (ADR-2606021200 port).
   1:1 parity with cells/outbound_logistics/test_outbound_logistics.py."
   (:require [clojure.test :refer [deftest is testing]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [himawari.cells.outbound-logistics.state-machine :as sm]))
 
 ;; ── Happy-path fixture ──

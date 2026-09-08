@@ -2,7 +2,7 @@
   "Tests for the himawari cell_process gated state machine (ADR-2606021200 port).
   1:1 port of the cell_process cases from cells/test_cell_process.py (pytest → clojure.test)."
   (:require [clojure.test :refer [deftest is testing]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [himawari.cells.cell-process.state-machine :as sm]))
 
 (deftest test-cell-process-happy-path-complete

@@ -9,7 +9,7 @@
   Gates enforced:
   G13  no weaponization · encrypted telemetry · own-module → hikari sites only
        (no external commercial logistics carriage, N10)."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; G13 / N1: himawari modules are produced for INTERNAL hikari install only.
 (def ^:private ALLOWED_CONSIGNEE_PREFIX "did:web:etzhayyim.com:hikari")
@@ -70,8 +70,8 @@
   "INIT → CARRIER_BOUND: compose kami-autodrive GNC + enforce G13."
   [state]
   (let [os       (get state "outbound_state")
-        requested (str/lower-case (str/trim (str (get state "carrierClass" ""))))
-        mode      (str/lower-case (str (get state "transportMode" "road")))
+        requested (str/lower (str/trim (str (get state "carrierClass" ""))))
+        mode      (str/lower (str (get state "transportMode" "road")))
         requested (if (str/blank? requested)
                     (if (#{"marine" "sea" "ocean"} mode) "ship" "car")
                     requested)]
