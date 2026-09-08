@@ -12,7 +12,7 @@
   7-node LangGraph-shaped DAG (fallback sequential driver when LangGraph unavailable):
   init → texture → junction → metallization → flash_iv → gas_abatement
     (conditional) → witness → emit_record OR halt."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; G3: high-GWP etch/clean gases (AR5 100-yr GWP values, industry-standard).
 (def ^:private HIGH_GWP_GASES

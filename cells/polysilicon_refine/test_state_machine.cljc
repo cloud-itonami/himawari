@@ -2,7 +2,7 @@
   "Tests for the himawari polysilicon_refine state machine (ADR-2606021200 port).
   1:1 parity with cells/polysilicon_refine/test_cell.py."
   (:require [clojure.test :refer [deftest is testing]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [himawari.cells.polysilicon-refine.state-machine :as sm]))
 
 ;; ── Happy-path fixture ──

@@ -16,7 +16,7 @@
   Ed25519 device key (no server-held signing key — substrate boundary). At R1 activation,
   `sign-module` swaps to a real Ed25519 sign over the same canonical bytes; the digest
   contract is unchanged. No secrets live here."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; Murakumo node identity for this cell (manifest.jsonld: module_assembly → asher).
 (def ^:private MURAKUMO_NODE "asher")

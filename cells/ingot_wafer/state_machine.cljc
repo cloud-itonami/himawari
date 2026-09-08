@@ -7,7 +7,7 @@
   back to polysilicon_refine as recycled-kerf feedstock (closing the G5 loop).
 
   Pure-logic cell with no LangGraph/robot composition required."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; G5: kerf-Si recovery must close the loop to ≥90% circular (basis points).
 (def ^:private KERF_RECOVERY_MIN_BPS 9000)

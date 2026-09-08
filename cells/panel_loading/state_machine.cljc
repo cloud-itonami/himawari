@@ -8,7 +8,7 @@
   G7  labor-liberation transparency — every human task removed by automation logged
       to the Liberation Metric.
   G12 no external commercial PV sale — modules load for internal hikari install only."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; sarutahiko F10 LoaderRobot cycle phases (mirror of the authoritative Rust enum).
 (def ^:private LOAD_PHASES

@@ -23,7 +23,7 @@
 (ns build-wasm
   (:require [babashka.process :as p]
             [babashka.fs :as fs]
-            [clojure.string :as str]))
+            [kotoba.lang.text :as str]))
 
 ;; ── helpers ──────────────────────────────────────────────────────────────────
 
