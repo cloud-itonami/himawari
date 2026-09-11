@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; himawari 向日葵 — kotoba-clj WASM Component build (ADR-2606222100, 2026-06-23)
 ;;
 ;; Builds deploy/agent.cljk → deploy/agent.wasm using the kotoba-clj compiler
@@ -10,7 +10,7 @@
 ;; wasmtime) via babashka.process is allowed — that is not "a shell script".
 ;;
 ;; Usage (from repo root):
-;;   bb 20-actors/himawari/deploy/build_wasm.cljk
+;;   kbb 20-actors/himawari/deploy/build_wasm.cljk
 ;;
 ;; Or via the bb.edn task:
 ;;   bb himawari:build-wasm

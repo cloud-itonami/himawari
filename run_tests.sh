@@ -11,7 +11,7 @@
 # - supply_procurement  調達 (G2 XUAR/G8 SBOM + okaimono commons-first)
 set -euo pipefail
 cd "$(dirname "$0")/../.."
-exec bb -e '(def nss (quote [himawari.cells.polysilicon-refine.test-state-machine
+exec kbb -e '(def nss (quote [himawari.cells.polysilicon-refine.test-state-machine
                              himawari.cells.ingot-wafer.test-state-machine
                              himawari.cells.cell-process.test-state-machine
                              himawari.cells.module-assembly.test-state-machine
