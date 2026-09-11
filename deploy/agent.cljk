@@ -28,7 +28,7 @@
 ;;
 ;; Build:
 ;;   cargo run -p kotoba-clj --features component -- \
-;;     build 20-actors/himawari/deploy/agent.cljc -o 20-actors/himawari/deploy/agent.wasm
+;;     build 20-actors/himawari/deploy/agent.cljk -o 20-actors/himawari/deploy/agent.wasm
 ;;
 ;; Validate + run (see build-wasm.sh):
 ;;   wasm-tools validate --features component-model agent.wasm
