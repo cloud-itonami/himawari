@@ -9,7 +9,7 @@ kami-autodrive GNC + giemon AGV (does not re-implement logistics).
 | Lexicons | ✅ 7 under `com.etzhayyim.himawari.*` (polysiliconProvenance/waferBatch/cellBatch/module/loading/outboundManifest/silenHimawariReview) — rich const + enum ledger |
 | Cells | ✅ 7 cell solvers implemented (R0.1; `.solve()` real, no RuntimeError stubs) |
 | Manifest | ✅ `manifest.jsonld` — `constitutionalGates` (G1–G14) machine-readable |
-| Tests | ✅ **charter-gate 7 green** (`methods/test_charter_gates.cljc`, added 2026-06-17) **+ 88 pure-logic cell tests** (pre-existing); `./run_tests.sh` runs the charter suite |
+| Tests | ✅ **charter-gate 7 green** (`methods/test_charter_gates.cljk`, added 2026-06-17) **+ 88 pure-logic cell tests** (pre-existing); `./run_tests.sh` runs the charter suite |
 | Methods | ✅ cell solvers; live Pregel/Murakumo wiring + kotoba materialization = R1 |
 
 ## Charter gates pinned by the new charter-gate test
@@ -33,4 +33,4 @@ kami-autodrive GNC + giemon AGV (does not re-implement logistics).
 silenHimawariReview `r1-module-assembly-activation` + Council Lv6+ + hikari energy-budget
 coupling contract; live Pregel/Murakumo runtime wiring deferred to R1.
 
-> **2026-06-17 substrate-native migration (ADR-2606160842):** the charter-gate test above was ported Python→Clojure (`methods/test_charter_gates.py` → `methods/test_charter_gates.cljc`, ns `himawari.methods.test-charter-gates`, reads the lexicons via cheshire/edn) and the Python was pruned. Run via `./run_tests.sh` (now `exec bb`) or `bb run test:charter` (all 34 charter suites; 244 tests / 924 assertions green). Assertions unchanged (1:1 port).
+> **2026-06-17 substrate-native migration (ADR-2606160842):** the charter-gate test above was ported Python→Clojure (`methods/test_charter_gates.py` → `methods/test_charter_gates.cljk`, ns `himawari.methods.test-charter-gates`, reads the lexicons via cheshire/edn) and the Python was pruned. Run via `./run_tests.sh` (now `exec bb`) or `bb run test:charter` (all 34 charter suites; 244 tests / 924 assertions green). Assertions unchanged (1:1 port).
