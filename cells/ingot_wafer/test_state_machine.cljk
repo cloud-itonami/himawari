@@ -1,7 +1,7 @@
 (ns himawari.cells.ingot-wafer.test-state-machine
   "Tests for the himawari ingot_wafer cell (ADR-2606021200 port).
   1:1 port of cells/test_ingot_wafer.py cases."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [kotoba.lang.text :as str]
             [himawari.cells.ingot-wafer.state-machine :as sm]))
 

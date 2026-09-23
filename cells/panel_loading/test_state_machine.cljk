@@ -1,6 +1,6 @@
 (ns himawari.cells.panel-loading.test-state-machine
   "Tests for the himawari panel_loading cell (ADR-2606021200 port)."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [himawari.cells.panel-loading.state-machine :as sm]))
 
 (deftest test-panel-loading-happy-path-accepted
