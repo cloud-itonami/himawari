@@ -101,4 +101,4 @@ N1 no logic-fab (silicon track) · N2 no CdTe · N3 no Pb-perovskite · N4 no ex
 - `/90-docs/adr/2606010600-kami-autodrive-gnc-autonomy-layer.md` — outbound transport
 - `/90-docs/adr/2605312330-giemon-part-graph-sbom-kotoba-fleet-cve-svelte.md` — SBOM procurement
 - `/90-docs/adr/2605261000-labor-liberation-transition-mechanism.md` — L2 gate + G7 coupling
-- `/CLAUDE.md` — Religious-corp status table
+- `/AGENTS.md` — Religious-corp status table

@@ -5,7 +5,7 @@
 ;; (compile_component_str_with_prelude path). Then validates + smoke-runs the output
 ;; Component under wasmtime.
 ;;
-;; Per the repo-wide rule (root CLAUDE.md §"Operational code = clj/bb"): first-party
+;; Per the repo-wide rule (root AGENTS.md §"Operational code = clj/bb"): first-party
 ;; tooling is clj/bb, NOT shell. Shelling out to SYSTEM BINARIES (cargo, wasm-tools,
 ;; wasmtime) via babashka.process is allowed — that is not "a shell script".
 ;;
