@@ -210,5 +210,5 @@ seals with `kotoba commit`, then builds `agent.wasm`.
   node in this environment). The build is verified; the invoke recipe above is the
   drop-in path the aria/okaimono actors use and is reproducible once a node is up.
 - Cells themselves: R0.1 — `.solve()` fully implemented (88 pure-logic tests green,
-  per actor CLAUDE.md); operational Pregel/Murakumo runtime wiring + sim + live
+  per actor AGENTS.md); operational Pregel/Murakumo runtime wiring + sim + live
   kotoba materialization light up at R1 activation (ADR-2606021200 §R1 triggers).

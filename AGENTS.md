@@ -1,4 +1,4 @@
-# 20-actors/himawari — CLAUDE.md
+# 20-actors/himawari — AGENTS.md
 
 ## Identity
 
@@ -137,4 +137,4 @@ done
 - `/90-docs/adr/2606010600-kami-autodrive-gnc-autonomy-layer.md` — outbound transport
 - `/90-docs/adr/2605312330-giemon-part-graph-sbom-kotoba-fleet-cve-svelte.md` — SBOM procurement
 - `/20-actors/kuni-umi/README.md` — Otete/Mimi class lineage
-- `/CLAUDE.md` — Religious-corp status table
+- `/AGENTS.md` — Religious-corp status table
