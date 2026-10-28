@@ -8,7 +8,8 @@
 
   A refused lot carries accepted=false and is NOT routed to ingot_wafer. The refusal
   record is computed and returned so a rejected lot is permanently auditable."
-  (:require [kotoba.lang.text :as str]))
+  (:require [himawari.strhash :as sh]
+            [kotoba.lang.text :as str]))
 
 ;; ── G2 / N6: XUAR + forced-labor exclusion terms (constitutional, case-insensitive substring) ──
 (def ^:private EXCLUDED_ORIGIN_TERMS
@@ -40,7 +41,7 @@
   Uses int-range hash to stay compatible with babashka/SCI bit-ops."
   [payload]
   (let [s (str payload)
-        h (int (.hashCode s))
+        h (sh/java-hash s)
         abs-h (if (neg? h) (- h) h)]
     (str "bafy~sha256-" (format "%08x" abs-h))))
 

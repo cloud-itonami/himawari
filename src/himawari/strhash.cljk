@@ -1,0 +1,26 @@
+(ns himawari.strhash
+  "Portable `String.hashCode`. The cells' placeholder CIDs/signatures were
+  built on `(.hashCode s)`, which the kbb engine (SCI on Node) does not have
+  — it raised `Could not find instance method: hashCode`. This reproduces the
+  JVM value exactly (31-multiplier over UTF-16 code units, wrapped to a
+  signed 32-bit int), so existing digests are unchanged and no host interop
+  is needed."
+  (:require [kotoba.lang.text :as str]))
+
+(defn- utf16-units
+  "UTF-16 code units of `s`: astral codepoints become surrogate pairs."
+  [s]
+  (mapcat (fn [cp]
+            (if (> cp 0xFFFF)
+              (let [c (- cp 0x10000)]
+                [(+ 0xD800 (quot c 0x400)) (+ 0xDC00 (rem c 0x400))])
+              [cp]))
+          (str/codepoints s)))
+
+(defn- wrap32 [x]
+  (- (mod (+ x 2147483648) 4294967296) 2147483648))
+
+(defn java-hash
+  "`s.hashCode()` as the JVM computes it, as a signed 32-bit int."
+  [s]
+  (reduce (fn [h u] (wrap32 (+ (* 31 h) u))) 0 (utf16-units s)))

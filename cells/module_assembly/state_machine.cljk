@@ -16,7 +16,8 @@
   Ed25519 device key (no server-held signing key — substrate boundary). At R1 activation,
   `sign-module` swaps to a real Ed25519 sign over the same canonical bytes; the digest
   contract is unchanged. No secrets live here."
-  (:require [kotoba.lang.text :as str]))
+  (:require [himawari.strhash :as sh]
+            [kotoba.lang.text :as str]))
 
 ;; Murakumo node identity for this cell (manifest.jsonld: module_assembly → asher).
 (def ^:private MURAKUMO_NODE "asher")
@@ -50,7 +51,7 @@
   Uses int-range hash to stay compatible with babashka/SCI bit-ops."
   [payload kind]
   (let [s (str payload)
-        h (int (.hashCode s))
+        h (sh/java-hash s)
         abs-h (if (neg? h) (- h) h)]
     (str "cid:himawari:" kind ":sha256:" (format "%08x" abs-h))))
 
@@ -72,7 +73,7 @@
 (defn- int-hash-hex
   "Return an 8-char hex string of the abs(int) hash of s. Stays in int range for bb/SCI."
   [s]
-  (let [h (int (.hashCode s))
+  (let [h (sh/java-hash s)
         abs-h (if (neg? h) (- h) h)]
     (format "%08x" abs-h)))
 
