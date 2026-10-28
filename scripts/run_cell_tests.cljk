@@ -1,0 +1,22 @@
+;; Runs the cell test namespaces on the kbb engine and exits non-zero on any
+;; failure or error. Invoked by run_tests.sh, which puts a `himawari/` path
+;; prefix on the classpath (the namespaces are himawari.cells.*).
+(require '[cljs.test :as t])
+
+(defmethod t/report [:cljs.test/default :end-run-tests] [m]
+  (println (str "himawari: " (:test m) " tests, " (:pass m) " pass, "
+                (:fail m) " fail, " (:error m) " error"))
+  (when (pos? (+ (:fail m) (:error m)))
+    (System/exit 1)))
+
+(def nss '[himawari.strhash-test
+           himawari.cells.polysilicon-refine.test-state-machine
+           himawari.cells.ingot-wafer.test-state-machine
+           himawari.cells.cell-process.test-state-machine
+           himawari.cells.module-assembly.test-state-machine
+           himawari.cells.panel-loading.test-state-machine
+           himawari.cells.outbound-logistics.test-state-machine
+           himawari.cells.supply-procurement.test-state-machine])
+
+(apply require nss)
+(apply t/run-tests nss)

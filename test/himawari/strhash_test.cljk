@@ -1,0 +1,13 @@
+(ns himawari.strhash-test
+  (:require [kotoba.test :refer [deftest is testing]]
+            [himawari.strhash :as sh]))
+
+(deftest java-hash-matches-jvm-string-hashcode-test
+  (testing "values from java.lang.String.hashCode (UTF-16, signed 32-bit)"
+    (is (= 0 (sh/java-hash "")))
+    (is (= 97 (sh/java-hash "a")))
+    (is (= 99162322 (sh/java-hash "hello")))
+    (is (= -2147483648 (sh/java-hash "polygenelubricants")))
+    (is (= 25921943 (sh/java-hash "日本語")))
+    (is (= 1772899 (sh/java-hash "😀")))
+    (is (= -2073942775 (sh/java-hash "bafy~x|y")))))
